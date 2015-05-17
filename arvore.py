@@ -2,7 +2,7 @@ class No:
   def __init__(self,tab):
     self.tabuleiro=tab
     self.filhos=[]
-  def addFilho(no):
+  def addFilho(self,no):
     self.filhos.append(no)
 
 def imprimir(tabuleiro):
@@ -105,12 +105,12 @@ def geraArvore(tabuleiro,no,nivel,letra):
         elif not ehSimetrico:
           ehSimetrico = simetrico(tabuleiro,filho.tabuleiro)
       if not naArvore and not ehSimetrico:
-        temporario=No(tabuleiro)
-        no.addFilho(temporario)
+        temp = No(tabuleiro)
+        no.addFilho(temp)
         if letra == 'X':
           letra = 'O'
         else:
           letra = 'X'
         geraArvore(tabuleiro,no.filhos[len(no.filhos-1)],nivel+1,letra)
-
+      tabuleiro[i]=' '
 print gerarArvore()
