@@ -40,7 +40,7 @@ def espelhar(tab):
   tabuleiro+=tab[8]
   tabuleiro+=tab[7]
   tabuleiro+=tab[6]
-  return tabuleiro  
+  return tabuleiro
 
 def igual(tab1,tab2):
   for i in range(0,9):
@@ -73,7 +73,7 @@ def gerarArvore():
     for no in arvore:
       if no[1] == tabuleiro:
         naArvore = True
-      elif not ehSimetrico:      
+      elif not ehSimetrico:
         ehSimetrico = simetrico(tabuleiro,no[1])
     if not naArvore and not ehSimetrico:
       arvore+=[[0,copiar(tabuleiro)]]
@@ -81,4 +81,3 @@ def gerarArvore():
   return arvore
 
 print gerarArvore()
-
