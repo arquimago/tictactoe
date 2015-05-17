@@ -1,3 +1,10 @@
+class No:
+  def __init__(self,tab):
+    self.tabuleiro=tab
+    self.filhos=[]
+  def addFilho(no):
+    self.filhos.append(no)
+
 def imprimir(tabuleiro):
   print ' '
   print '   |   |'
