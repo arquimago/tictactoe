@@ -2,20 +2,21 @@ class No:
   def __init__(self,tab):
     self.tabuleiro=tab
     self.filhos=[]
-  def addFilho(self,no):
+
+  def addFilho(no):
     self.filhos.append(no)
 
-def imprimir(tabuleiro):
-  print ' '
-  print '   |   |'
-  print ' ' + tabuleiro[0] + ' | ' + tabuleiro[1] + ' | ' + tabuleiro[2]
-  print '___|___|____'
-  print '   |   |'
-  print ' ' + tabuleiro[3] + ' | ' + tabuleiro[4] + ' | ' + tabuleiro[5]
-  print '___|___|____'
-  print '   |   |'
-  print ' ' + tabuleiro[6] + ' | ' + tabuleiro[7] + ' | ' + tabuleiro[8]
-  print '   |   |'
+  def imprimir(self):
+    print ' '
+    print '   |   |'
+    print ' ' + self.tabuleiro[0] + ' | ' + self.tabuleiro[1] + ' | ' + self.tabuleiro[2]
+    print '___|___|____'
+    print '   |   |'
+    print ' ' + self.tabuleiro[3] + ' | ' + self.tabuleiro[4] + ' | ' + self.tabuleiro[5]
+    print '___|___|____'
+    print '   |   |'
+    print ' ' + self.tabuleiro[6] + ' | ' + self.tabuleiro[7] + ' | ' + self.tabuleiro[8]
+    print '   |   |'
 
 def copiar(tab):
   tabTemp = []
