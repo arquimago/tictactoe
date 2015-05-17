@@ -3,7 +3,7 @@ class No:
     self.tabuleiro=tab
     self.filhos=[]
 
-  def addFilho(no):
+  def addFilho(self,no):
     self.filhos.append(no)
 
   def imprimir(self):
