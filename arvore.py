@@ -60,20 +60,27 @@ def simetrico(tab1,tab2):
   return False
 
 def gerarArvore():
-  arvore=[]
   tabuleiro = [' ']*9
+  arvore=[]
   tabuleiro[0]='X'
+  #print tabuleiro
   arvore+=[copiar(tabuleiro)]
   tabuleiro[0]=' '
   for i in range(1,9):
     tabuleiro[i]='X'
     aux=[]
+    naArvore = False
+    ehSimetrico = False
     for no in arvore:
-      print no
-      if not simetrico(no, tabuleiro):
-        aux+=[copiar(tabuleiro)]
+      if no == tabuleiro:
+        naArvore = True
+      elif not ehSimetrico:      
+        ehSimetrico = simetrico(tabuleiro,no)
+    if not naArvore and not ehSimetrico:
+      aux+=[copiar(tabuleiro)]
     tabuleiro[i]=' '
     arvore+=aux
   return arvore
 
-gerarArvore()
+print gerarArvore()
+
