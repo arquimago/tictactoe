@@ -109,7 +109,7 @@ def geraArvore(tabuleiro,no,nivel,letra):
           letra = 'O'
         else:
           letra = 'X'
-        geraArvore(tabuleiro,no.filhos[len(no.filhos-1)],nivel+1,letra)
+        geraArvore(tabuleiro,no.filhos[len(no.filhos)-1],nivel+1,letra)
     tabuleiro[i]=' '
 
 #print gerarArvore()
