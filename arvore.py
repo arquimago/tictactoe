@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class No:
   def __init__(self,tab):
     self.tabuleiro=tab
