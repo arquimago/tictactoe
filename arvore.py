@@ -10,12 +10,6 @@ def imprimir(tabuleiro):
   print ' ' + tabuleiro[6] + ' | ' + tabuleiro[7] + ' | ' + tabuleiro[8]
   print '   |   |'
 
-def copia(tab):
-  tabuleiro=[]
-  for celula in tab:
-    tabuleiro+=celula
-  return tabuleiro
-
 def rodar(tab):
   tabuleiro=[]
   tabuleiro+=tab[3]
@@ -49,15 +43,20 @@ def igual(tab1,tab2):
   return True
 
 def simetrico(tab1,tab2):
-  tabTemp = tab2
   for i in range(0,4):
-    if igual(tab1,tabTemp):
+    if igual(tab1,tab2):
+      return True
+    tab2 = espelhar(tab2)
+    if igual(tab1,tab2):
 	  return True
-	tabTemp = espelhar(tabTemp)
-	if igual(tab1,tabTemp):
-	  return True
-	tabTemp = espelhar(tabTemp)
-	tabTemp = rodar(tabTemp)
+    tab2 = espelhar(tab2)
+    tab2 = rodar(tab2)
   return False
 
 arvore = []
+
+tabuleiro = [' ']*9
+
+tabTemp = tabuleiro
+
+imprimir(tabTemp)
