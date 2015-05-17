@@ -67,6 +67,8 @@ def simetrico(tab1,tab2):
     tab2 = rodar(tab2)
   return False
 
+"""
+#a função abaixo gera 1 nivel de arvore
 def gerarArvore():
   tabuleiro = [' ']*9
   arvore=[]
@@ -87,9 +89,10 @@ def gerarArvore():
       arvore+=[[0,copiar(tabuleiro)]]
     tabuleiro[i]=' '
   return arvore
-
+"""
 
 def geraArvore(tabuleiro,no,nivel,letra):
+  print nivel
   if nivel == 2:
     return
   for i in range(0,9):
@@ -98,13 +101,14 @@ def geraArvore(tabuleiro,no,nivel,letra):
       naArvore=False
       ehSimetrico=False
       for filho in no.filhos:
+        #filho.imprimir()
         if filho == tabuleiro:
           naArvore = True
         elif not ehSimetrico:
           ehSimetrico = simetrico(tabuleiro,filho.tabuleiro)
       if not naArvore and not ehSimetrico:
         temp = No(tabuleiro)
-        temp.imprimir()
+        #temp.imprimir()
         no.addFilho(temp)
         if letra == 'X':
           letra = 'O'
