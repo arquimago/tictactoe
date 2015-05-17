@@ -78,7 +78,6 @@ def gerarArvore():
     if not naArvore and not ehSimetrico:
       arvore+=[[0,copiar(tabuleiro)]]
     tabuleiro[i]=' '
-
   return arvore
 
 print gerarArvore()
