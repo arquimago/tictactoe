@@ -1,3 +1,10 @@
+class No:
+  def __init__(self,tab):
+    self.tabuleiro=tab
+    self.filhos=[]
+  def addFilho(no):
+    self.filhos.append(no)
+
 def imprimir(tabuleiro):
   print ' '
   print '   |   |'
@@ -40,7 +47,7 @@ def espelhar(tab):
   tabuleiro+=tab[8]
   tabuleiro+=tab[7]
   tabuleiro+=tab[6]
-  return tabuleiro  
+  return tabuleiro
 
 def igual(tab1,tab2):
   for i in range(0,9):
@@ -73,12 +80,37 @@ def gerarArvore():
     for no in arvore:
       if no[1] == tabuleiro:
         naArvore = True
-      elif not ehSimetrico:      
+      elif not ehSimetrico:
         ehSimetrico = simetrico(tabuleiro,no[1])
     if not naArvore and not ehSimetrico:
       arvore+=[[0,copiar(tabuleiro)]]
     tabuleiro[i]=' '
   return arvore
 
-print gerarArvore()
+tabuleiro = [' ']*9
+raiz = No(tabuleiro)
 
+
+def geraArvore(tabuleiro,no,nivel,letra):
+  if nivel == 2:
+    return
+  for i in range(0,9):
+    if tabuleiro[i] == ' ':
+      tabuleiro[i]=letra
+      naArvore=False
+      ehSimetrico=False
+      for filho in no.filhos:
+        if filho == tabuleiro:
+          naArvore = True
+        elif not ehSimetrico:
+          ehSimetrico = simetrico(tabuleiro,filho.tabuleiro)
+      if not naArvore and not ehSimetrico:
+        temporario=No(tabuleiro)
+        no.addFilho(temporario)
+        if letra == 'X':
+          letra = 'O'
+        else:
+          letra = 'X'
+        geraArvore(tabuleiro,no.filhos[len(no.filhos-1)],nivel+1,letra)
+
+print gerarArvore()
