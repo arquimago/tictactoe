@@ -1,4 +1,5 @@
 import arvore
+from minimax import minimax
 
 def main():
 
@@ -9,6 +10,8 @@ def main():
   arvore.geraArvore(tabuleiro,raiz)
 
   arvore.avaliarArvore(raiz)
+
+  print 'Minimax resultado: ' + str(minimax(raiz, 2, True))
 
 
 if __name__ == '__main__': main()
