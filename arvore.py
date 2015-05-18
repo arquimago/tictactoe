@@ -110,7 +110,7 @@ def geraArvore(tabuleiro,no,nivel,letra):
           ehSimetrico = simetrico(tabuleiro,filho.tabuleiro)
       if not naArvore and not ehSimetrico:
         temp = No(tabuleiro)
-        #temp.imprimir()
+        temp.imprimir()
         no.addFilho(temp)
         if letra == 'X':
           letra = 'O'

@@ -1,8 +1,9 @@
-"FUNCAO DE AVALIACAO"
-Created on 17/05/2015
-
-@author: Saulo
-
+# -*- coding: utf-8 -*-
+#"FUNCAO DE AVALIACAO"
+#Created on 17/05/2015
+#
+#@author: Saulo
+#
 
 def avaliacao(state):
     """Retorna o valor da função de avaliação para um determinado nó
