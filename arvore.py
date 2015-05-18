@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
+from avaliacao import avaliacao
+
 class No:
   def __init__(self,tab):
     self.tabuleiro=tab
     self.filhos=[]
+    self.avaliacao=999999
 
   def addFilho(self,no):
     self.filhos.append(no)
@@ -83,7 +86,7 @@ def geraArvore(tabuleiro,no):
       if not naArvore and not ehSimetrico:
         tempTab = copiar(tabuleiro)
         temp = No(tempTab)
-        temp.imprimir()
+        #temp.imprimir()
         no.addFilho(temp)
       tabuleiro[i]=' '
   for filho in no.filhos:
@@ -101,16 +104,29 @@ def geraArvore(tabuleiro,no):
         if not naArvore and not ehSimetrico:
           tempTab2 = copiar(tempTab)
           temp = No(tempTab2)
-          temp.imprimir()
+          #temp.imprimir()
           filho.addFilho(temp)
         tempTab[i]=' '
 
+def avaliarArvore(no):
+  no.imprimir()
+  print "raiz"
+  for filho in no.filhos:
+    filho.imprimir()
+    print "filho"
+    for neto in filho.filhos:
+      neto.avaliacao=avaliacao(neto.tabuleiro)
+      neto.imprimir()
+      print "neto - Avaliacao " + str(neto.avaliacao)
+      if neto.avaliacao < filho.avaliacao:
+        filho.avaliacao = neto.avaliacao
+    print "filho - Avaliacao " + str(filho.avaliacao)
+
 def main():
-  #print gerarArvore()
 
   tabuleiro = [' ']*9
   raiz = No(tabuleiro)
-
   geraArvore(tabuleiro,raiz)
+  avaliarArvore(raiz)
 
 if __name__ == '__main__': main()
