@@ -4,7 +4,7 @@ from avaliacao import avaliacao
 
 class No:
   def __init__(self,tab):
-    self.tabuletrairo=tab
+    self.tabuleiro=tab
     self.filhos=[]
     self.avaliacao=999999
 
@@ -14,13 +14,13 @@ class No:
   def imprimir(self):
     print ' '
     print '   |   |'
-    print ' ' + self.tabuletrairo[0] + ' | ' + self.tabuletrairo[1] + ' | ' + self.tabuletrairo[2]
+    print ' ' + self.tabuleiro[0] + ' | ' + self.tabuleiro[1] + ' | ' + self.tabuleiro[2]
     print '___|___|____'
     print '   |   |'
-    print ' ' + self.tabuletrairo[3] + ' | ' + self.tabuletrairo[4] + ' | ' + self.tabuletrairo[5]
+    print ' ' + self.tabuleiro[3] + ' | ' + self.tabuleiro[4] + ' | ' + self.tabuleiro[5]
     print '___|___|____'
     print '   |   |'
-    print ' ' + self.tabuletrairo[6] + ' | ' + self.tabuletrairo[7] + ' | ' + self.tabuletrairo[8]
+    print ' ' + self.tabuleiro[6] + ' | ' + self.tabuleiro[7] + ' | ' + self.tabuleiro[8]
     print '   |   |'
 
 def copiar(tab):
@@ -30,30 +30,30 @@ def copiar(tab):
   return tabTemp
 
 def rodar(tab):
-  tabuletrairo=[]
-  tabuletrairo+=tab[2]
-  tabuletrairo+=tab[5]
-  tabuletrairo+=tab[8]
-  tabuletrairo+=tab[1]
-  tabuletrairo+=tab[4]
-  tabuletrairo+=tab[7]
-  tabuletrairo+=tab[0]
-  tabuletrairo+=tab[3]
-  tabuletrairo+=tab[6]
-  return tabuletrairo
+  tabuleiro=[]
+  tabuleiro+=tab[2]
+  tabuleiro+=tab[5]
+  tabuleiro+=tab[8]
+  tabuleiro+=tab[1]
+  tabuleiro+=tab[4]
+  tabuleiro+=tab[7]
+  tabuleiro+=tab[0]
+  tabuleiro+=tab[3]
+  tabuleiro+=tab[6]
+  return tabuleiro
 
 def espelhar(tab):
-  tabuletrairo=[]
-  tabuletrairo+=tab[2]
-  tabuletrairo+=tab[1]
-  tabuletrairo+=tab[0]
-  tabuletrairo+=tab[5]
-  tabuletrairo+=tab[4]
-  tabuletrairo+=tab[3]
-  tabuletrairo+=tab[8]
-  tabuletrairo+=tab[7]
-  tabuletrairo+=tab[6]
-  return tabuletrairo
+  tabuleiro=[]
+  tabuleiro+=tab[2]
+  tabuleiro+=tab[1]
+  tabuleiro+=tab[0]
+  tabuleiro+=tab[5]
+  tabuleiro+=tab[4]
+  tabuleiro+=tab[3]
+  tabuleiro+=tab[8]
+  tabuleiro+=tab[7]
+  tabuleiro+=tab[6]
+  return tabuleiro
 
 def igual(tab1,tab2):
   for i in range(0,9):
@@ -73,33 +73,33 @@ def simetrico(tab1,tab2):
   return False
 
 def final(tab,letra):
-  return ((tab[6] == letra and tab[7] == letra and tab[8] == letra) or # across the top
-  (tab[3] == letra and tab[4] == letra and tab[5] == letra) or # across the middletra
-  (tab[0] == letra and tab[1] == letra and tab[2] == letra) or # across the tabttom
-  (tab[6] == letra and tab[3] == letra and tab[0] == letra) or # down the letraft side
-  (tab[7] == letra and tab[4] == letra and tab[1] == letra) or # down the middletra
-  (tab[8] == letra and tab[5] == letra and tab[2] == letra) or # down the right side
-  (tab[6] == letra and tab[4] == letra and tab[2] == letra) or # diagonal
-  (tab[8] == letra and tab[4] == letra and tab[0] == letra)) # diagonal
+  return ((tab[6] == letra and tab[7] == letra and tab[8] == letra) or  
+  (tab[3] == letra and tab[4] == letra and tab[5] == letra) or 
+  (tab[0] == letra and tab[1] == letra and tab[2] == letra) or 
+  (tab[6] == letra and tab[3] == letra and tab[0] == letra) or 
+  (tab[7] == letra and tab[4] == letra and tab[1] == letra) or 
+  (tab[8] == letra and tab[5] == letra and tab[2] == letra) or 
+  (tab[6] == letra and tab[4] == letra and tab[2] == letra) or 
+  (tab[8] == letra and tab[4] == letra and tab[0] == letra)) 
 
-def geraArvore(tabuletrairo,no):
+def geraArvore(tabuleiro,no):
   for i in range(0,9):
-    if tabuletrairo[i] == ' ':
-      tabuletrairo[i]='X'
+    if tabuleiro[i] == ' ':
+      tabuleiro[i]='X'
       naArvore=False
       ehSimetrico=False
       for filho in no.filhos:
-        if filho == tabuletrairo:
+        if filho == tabuleiro:
           naArvore = True
         elif not ehSimetrico:
-          ehSimetrico = simetrico(tabuletrairo,filho.tabuletrairo)
+          ehSimetrico = simetrico(tabuleiro,filho.tabuleiro)
       if not naArvore and not ehSimetrico:
-        tempTab = copiar(tabuletrairo)
+        tempTab = copiar(tabuleiro)
         temp = No(tempTab)
         no.addFilho(temp)
-      tabuletrairo[i]=' '
+      tabuleiro[i]=' '
   for filho in no.filhos:
-    tempTab = copiar(filho.tabuletrairo)
+    tempTab = copiar(filho.tabuleiro)
     for i in range(0,9):
       if tempTab[i] == ' ':
         tempTab[i]='O'
@@ -109,7 +109,7 @@ def geraArvore(tabuletrairo,no):
           if neto == tempTab:
             naArvore = True
           elif not ehSimetrico:
-            ehSimetrico = simetrico(tempTab,neto.tabuletrairo)
+            ehSimetrico = simetrico(tempTab,neto.tabuleiro)
         if not naArvore and not ehSimetrico:
           tempTab2 = copiar(tempTab)
           temp = No(tempTab2)
@@ -123,7 +123,7 @@ def avaliarArvore(no):
     filho.imprimir()
     print "filho"
     for neto in filho.filhos:
-      neto.avaliacao=avaliacao(neto.tabuletrairo)
+      neto.avaliacao=avaliacao(neto.tabuleiro)
       neto.imprimir()
       print "neto - Avaliacao " + str(neto.avaliacao)
       if neto.avaliacao < filho.avaliacao:
@@ -132,9 +132,9 @@ def avaliarArvore(no):
 
 def main():
 
-  tabuletrairo = [' ']*9
-  raiz = No(tabuletrairo)
-  geraArvore(tabuletrairo,raiz)
+  tabuleiro = [' ']*9
+  raiz = No(tabuleiro)
+  geraArvore(tabuleiro,raiz)
   avaliarArvore(raiz)
 
 if __name__ == '__main__': main()

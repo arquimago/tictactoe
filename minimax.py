@@ -8,12 +8,13 @@ from avaliacao import avaliacao
 #o tabuleiro é um dos atributos do no, e nao o no em si, e essa funcao vai bugar
 #pq o isWinner não lê a posição 0 e vai até 9, meu vetor vai de 0 a 8 :P
 #arrumei essa funcao na arvore... 
+
 def isTerminalNode(node):
-	return final(node.tabuleiro, 'X') or final(node, 'O')
+	return final(node.tabuleiro, 'X') or final(node.tabuleiro, 'O')
 
 def minimax(node, depth, maximizingPlayer):
     if depth == 0 or isTerminalNode(node):
-        return avaliacao(node)
+        return avaliacao(node.tabuleiro)
     if maximizingPlayer:
         bestValue = -9999
         for child in node.filhos:
