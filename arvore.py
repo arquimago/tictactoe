@@ -69,7 +69,7 @@ def simetrico(tab1,tab2):
     tab2 = rodar(tab2)
   return False
 
-#"""
+"""
 #a função abaixo gera 1 nivel de arvore
 def gerarArvore():
   tabuleiro = [' ']*9
@@ -91,7 +91,7 @@ def gerarArvore():
       arvore+=[[0,copiar(tabuleiro)]]
     tabuleiro[i]=' '
   return arvore
-#"""
+"""
 
 def geraArvore(tabuleiro,no,nivel,letra):
   if nivel == 2:
