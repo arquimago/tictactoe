@@ -24,7 +24,7 @@ def inputPlayerLetter():
     letter = ''
     while not (letter == 'X' or letter == 'O'):
         print('Do you want to be X or O?')
-        letter = input().upper()
+        letter = raw_input().upper()
 
     # the first element in the tuple is the player's letter, the second is the computer's letter.
     if letter == 'X':
@@ -42,7 +42,7 @@ def whoGoesFirst():
 def playAgain():
     # This function returns True if the player wants to play again, otherwise it returns False.
     print('Do you want to play again? (yes or no)')
-    return input().lower().startswith('y')
+    return raw_input().lower().startswith('y')
 
 def makeMove(board, letter, move):
     board[move] = letter
@@ -77,7 +77,7 @@ def getPlayerMove(board):
     move = ' '
     while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
         print('What is your next move? (1-9)')
-        move = input()
+        move = raw_input()
     return int(move)
 
 def chooseRandomMoveFromList(board, movesList):
@@ -152,8 +152,8 @@ while True:
             # Player's turn.
             drawBoard(theBoard)
             print ' '
-            move = getComputerMove(theBoard, playerLetter)
-			#move = getPlayerMove(theBoard)
+            #move = getComputerMove(theBoard, playerLetter)
+            move = getPlayerMove(theBoard)
             makeMove(theBoard, playerLetter, move)
 
             if isWinner(theBoard, playerLetter):
