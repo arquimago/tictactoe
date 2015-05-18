@@ -86,7 +86,6 @@ def geraArvore(tabuleiro,no):
       if not naArvore and not ehSimetrico:
         tempTab = copiar(tabuleiro)
         temp = No(tempTab)
-        #temp.imprimir()
         no.addFilho(temp)
       tabuleiro[i]=' '
   for filho in no.filhos:
@@ -104,7 +103,6 @@ def geraArvore(tabuleiro,no):
         if not naArvore and not ehSimetrico:
           tempTab2 = copiar(tempTab)
           temp = No(tempTab2)
-          #temp.imprimir()
           filho.addFilho(temp)
         tempTab[i]=' '
 
