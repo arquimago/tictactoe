@@ -14,7 +14,7 @@ def main():
   print " "
   print "Avaliacao das folhas"
   arvore.avaliarArvore(raiz)
-
+  print " "
   print 'Minimax resultado: ' + str(minimax(raiz, 2, True))
 
 
