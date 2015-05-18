@@ -114,7 +114,16 @@ def geraArvore(tabuleiro,no,nivel,letra):
         for i in range(0,9):
           if tempTab[i] == ' ':
             tempTab[i] = 'O'
-            naArvore = 
+            naArvore2 = False
+            ehSimetrico2=False
+            for filho in no.filhos[len(no.filhos)-1].filhos:
+              if filho == tempTab:
+                naArvore2 = True
+            elif not ehSimetrico2:
+              ehSimetrico2 = simetrico(tempTab,filho.tabuleiro)
+        if not naArvore2 and not ehSimetrico2:
+          tempTab2 = copiar(tempTab)
+          temp2=
 
         '''
         if letra == 'X':
