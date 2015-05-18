@@ -117,16 +117,11 @@ def geraArvore(tabuleiro,no):
         tempTab[i]=' '
 
 def avaliarArvore(no):
-  no.imprimir()
-  print "raiz"
   for filho in no.filhos:
-    filho.imprimir()
-    print "filho"
-    print "filho - Avaliacao " + str(filho.avaliacao)
     for neto in filho.filhos:
       neto.avaliacao=avaliacao(neto.tabuleiro)
       neto.imprimir()
-      print "neto - Avaliacao " + str(neto.avaliacao)
+      print "folha - Avaliacao " + str(neto.avaliacao)
 
 
 def imprimirArvore(no):
