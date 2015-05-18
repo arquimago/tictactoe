@@ -99,7 +99,6 @@ def geraArvore(tabuleiro,no,nivel,letra):
   for i in range(0,9):
     if tabuleiro[i] == ' ':
       tabuleiro[i]=letra
-      print tabuleiro
       naArvore=False
       ehSimetrico=False
       for filho in no.filhos:
@@ -112,11 +111,18 @@ def geraArvore(tabuleiro,no,nivel,letra):
         temp = No(tempTab)
         temp.imprimir()
         no.addFilho(temp)
+        for i in range(0,9):
+          if tempTab[i] == ' ':
+            tempTab[i] = 'O'
+            naArvore = 
+
+        '''
         if letra == 'X':
           letra = 'O'
         else:
           letra = 'X'
         geraArvore(tabuleiro,no.filhos[len(no.filhos)-1],nivel+1,letra)
+        '''
       tabuleiro[i]=' '
 
 #print gerarArvore()
