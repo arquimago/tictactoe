@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import arvore
 from minimax import minimax
 
@@ -11,7 +12,15 @@ def main():
 
   arvore.avaliarArvore(raiz)
 
-  print 'Minimax resultado: ' + str(minimax(raiz, 2, True))
+  minimax_value = minimax(raiz, 2, True)
+
+  print 'Minimax melhor valor: ' + str(minimax_value)
+
+  for i,filho in enumerate(raiz.filhos):
+    if filho.avaliacao == minimax_value:
+      print 'Melhor jogada vai para:'
+      filho.imprimir()
+      break
 
 
 if __name__ == '__main__': main()
