@@ -118,9 +118,12 @@ def geraArvore(tabuleiro,no,nivel,letra):
         geraArvore(tabuleiro,no.filhos[len(no.filhos)-1],nivel+1,letra)
     tabuleiro[i]=' '
 
-#print gerarArvore()
+def main():
+  #print gerarArvore()
 
-tabuleiro = [' ']*9
-raiz = No(tabuleiro)
+  tabuleiro = [' ']*9
+  raiz = No(tabuleiro)
 
-geraArvore(tabuleiro,raiz,0,'X')
+  geraArvore(tabuleiro,raiz,0,'X')
+
+if __name__ == '__main__': main()
