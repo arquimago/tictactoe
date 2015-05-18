@@ -13,7 +13,7 @@ def avaliacao(state):
      _O_|_X_|___
      ___|___|___
         |   |
-    Lista = ['O','X','','','','','','',''] e retorna o valor -2(para este caso)
+    Lista = ['O','X',' ',' ',' ',' ',' ',' ',' '] e retorna o valor -2(para este caso)
         """
 
     posicao_x = -1
@@ -73,22 +73,22 @@ def case_1(state,letra):
     x2 = 0
 
     "Linha 1"
-    if(state[1] == '' and state[2] == ''):
+    if(state[1] == ' ' and state[2] == ' '):
         x1 += 1
-    elif((state[1] == letra and state[2] == '') or
-         (state[1] == '' and state[2] == letra)):
+    elif((state[1] == letra and state[2] == ' ') or
+         (state[1] == ' ' and state[2] == letra)):
         x2 += 1
     "Coluna 1"
-    if(state[3] == '' and state[6] == ''):
+    if(state[3] == ' ' and state[6] == ' '):
         x1 += 1
-    elif((state[3] == letra and state[6] == '') or
-         (state[3] == '' and state[6] == letra)):
+    elif((state[3] == letra and state[6] == ' ') or
+         (state[3] == ' ' and state[6] == letra)):
         x2 += 1
     "Diagonal 0 -> 8"
-    if(state[4] == '' and state[8] == ''):
+    if(state[4] == ' ' and state[8] == ' '):
         x1 += 1
-    elif((state[4] == letra and state[8] == '') or
-         (state[4] == '' and state[8] == letra)):
+    elif((state[4] == letra and state[8] == ' ') or
+         (state[4] == ' ' and state[8] == letra)):
         x2 += 1
 
     return(x1,x2)
@@ -98,16 +98,16 @@ def case_2(state,letra):
     x2 = 0
 
     "Linha 1"
-    if(state[0] == '' and state[2] == ''):
+    if(state[0] == ' ' and state[2] == ' '):
         x1 += 1
-    elif((state[0] == letra and state[2] == '') or
-         (state[0] == '' and state[2] == letra)):
+    elif((state[0] == letra and state[2] == ' ') or
+         (state[0] == ' ' and state[2] == letra)):
         x2 += 1
     "Coluna 2"
-    if(state[4] == '' and state[7] == ''):
+    if(state[4] == ' ' and state[7] == ' '):
         x1 += 1
-    elif((state[4] == letra and state[7] == '') or
-         (state[4] == '' and state[7] == letra)):
+    elif((state[4] == letra and state[7] == ' ') or
+         (state[4] == ' ' and state[7] == letra)):
         x2 += 1
 
     return(x1,x2)
@@ -117,22 +117,22 @@ def case_3(state,letra):
     x2 = 0
 
     "Linha 1"
-    if(state[0] == '' and state[1] == ''):
+    if(state[0] == ' ' and state[1] == ' '):
         x1 += 1
-    elif((state[0] == letra and state[1] == '') or
-         (state[0] == '' and state[1] == letra)):
+    elif((state[0] == letra and state[1] == ' ') or
+         (state[0] == ' ' and state[1] == letra)):
         x2 += 1
     "Coluna 3"
-    if(state[5] == '' and state[8] == ''):
+    if(state[5] == ' ' and state[8] == ' '):
         x1 += 1
-    elif((state[5] == letra and state[8] == '') or
-         (state[5] == '' and state[8] == letra)):
+    elif((state[5] == letra and state[8] == ' ') or
+         (state[5] == ' ' and state[8] == letra)):
         x2 += 1
     "Diagonal 2 -> 6"
-    if(state[4] == '' and state[6] == ''):
+    if(state[4] == ' ' and state[6] == ' '):
         x1 += 1
-    elif((state[4] == letra and state[6] == '') or
-         (state[4] == '' and state[6] == letra)):
+    elif((state[4] == letra and state[6] == ' ') or
+         (state[4] == ' ' and state[6] == letra)):
         x2 += 1
 
     return(x1,x2)
@@ -142,16 +142,16 @@ def case_4(state,letra):
     x2 = 0
 
     "Linha 2"
-    if(state[4] == '' and state[5] == ''):
+    if(state[4] == ' ' and state[5] == ' '):
         x1 += 1
-    elif((state[4] == letra and state[5] == '') or
-         (state[4] == '' and state[5] == letra)):
+    elif((state[4] == letra and state[5] == ' ') or
+         (state[4] == ' ' and state[5] == letra)):
         x2 += 1
     "Coluna 1"
-    if(state[0] == '' and state[6] == ''):
+    if(state[0] == ' ' and state[6] == ' '):
         x1 += 1
-    elif((state[0] == letra and state[6] == '') or
-         (state[0] == '' and state[6] == letra)):
+    elif((state[0] == letra and state[6] == ' ') or
+         (state[0] == ' ' and state[6] == letra)):
         x2 += 1
 
     return(x1,x2)
@@ -161,28 +161,28 @@ def case_5(state,letra):
     x2 = 0
 
     "Linha 2"
-    if(state[3] == '' and state[5] == ''):
+    if(state[3] == ' ' and state[5] == ' '):
         x1 += 1
-    elif((state[3] == letra and state[5] == '') or
-         (state[3] == '' and state[5] == letra)):
+    elif((state[3] == letra and state[5] == ' ') or
+         (state[3] == ' ' and state[5] == letra)):
         x2 += 1
     "Coluna 2"
-    if(state[1] == '' and state[7] == ''):
+    if(state[1] == ' ' and state[7] == ' '):
         x1 += 1
-    elif((state[1] == letra and state[7] == '') or
-         (state[1] == '' and state[7] == letra)):
+    elif((state[1] == letra and state[7] == ' ') or
+         (state[1] == ' ' and state[7] == letra)):
         x2 += 1
     "Diagonal 2 -> 6"
-    if(state[2] == '' and state[6] == ''):
+    if(state[2] == ' ' and state[6] == ' '):
         x1 += 1
-    elif((state[2] == letra and state[6] == '') or
-         (state[2] == '' and state[6] == letra)):
+    elif((state[2] == letra and state[6] == ' ') or
+         (state[2] == ' ' and state[6] == letra)):
         x2 += 1
     "Diagonal 0 -> 8"
-    if(state[0] == '' and state[8] == ''):
+    if(state[0] == ' ' and state[8] == ' '):
         x1 += 1
-    elif((state[0] == letra and state[8] == '') or
-         (state[0] == '' and state[8] == letra)):
+    elif((state[0] == letra and state[8] == ' ') or
+         (state[0] == ' ' and state[8] == letra)):
         x2 += 1
 
     return(x1,x2)
@@ -192,16 +192,16 @@ def case_6(state,letra):
     x2 = 0
 
     "Linha 2"
-    if(state[3] == '' and state[4] == ''):
+    if(state[3] == ' ' and state[4] == ' '):
         x1 += 1
-    elif((state[3] == letra and state[4] == '') or
-        (state[3] == '' and state[4] == letra)):
+    elif((state[3] == letra and state[4] == ' ') or
+        (state[3] == ' ' and state[4] == letra)):
         x2 += 1
     "Coluna 3"
-    if(state[2] == '' and state[8] == ''):
+    if(state[2] == ' ' and state[8] == ' '):
         x1 += 1
-    elif((state[2] == letra and state[8] == '') or
-        (state[2] == '' and state[8] == letra)):
+    elif((state[2] == letra and state[8] == ' ') or
+        (state[2] == ' ' and state[8] == letra)):
         x2 += 1
 
     return(x1,x2)
@@ -211,22 +211,22 @@ def case_7(state,letra):
     x2 = 0
 
     "Linha 3"
-    if(state[7] == '' and state[8] == ''):
+    if(state[7] == ' ' and state[8] == ' '):
         x1 += 1
-    elif((state[7] == letra and state[8] == '') or
-         (state[7] == '' and state[8] == letra)):
+    elif((state[7] == letra and state[8] == ' ') or
+         (state[7] == ' ' and state[8] == letra)):
         x2 += 1
     "Coluna 1"
-    if(state[3] == '' and state[0] == ''):
+    if(state[3] == ' ' and state[0] == ' '):
         x1 += 1
-    elif((state[3] == letra and state[0] == '') or
-         (state[3] == '' and state[0] == letra)):
+    elif((state[3] == letra and state[0] == ' ') or
+         (state[3] == ' ' and state[0] == letra)):
         x2 += 1
     "Diagonal 2 -> 6"
-    if(state[4] == '' and state[2] == ''):
+    if(state[4] == ' ' and state[2] == ' '):
         x1 += 1
-    elif((state[4] == letra and state[2] == '') or
-         (state[4] == '' and state[2] == letra)):
+    elif((state[4] == letra and state[2] == ' ') or
+         (state[4] == ' ' and state[2] == letra)):
         x2 += 1
 
     return(x1,x2)
@@ -236,16 +236,16 @@ def case_8(state,letra):
     x2 = 0
 
     "Linha 3"
-    if(state[6] == '' and state[8] == ''):
+    if(state[6] == ' ' and state[8] == ' '):
         x1 += 1
-    elif((state[6] == letra and state[8] == '') or
-        (state[6] == '' and state[8] == letra)):
+    elif((state[6] == letra and state[8] == ' ') or
+        (state[6] == ' ' and state[8] == letra)):
         x2 += 1
     "Coluna 2"
-    if(state[1] == '' and state[4] == ''):
+    if(state[1] == ' ' and state[4] == ' '):
         x1 += 1
-    elif((state[1] == letra and state[4] == '') or
-        (state[1] == '' and state[4] == letra)):
+    elif((state[1] == letra and state[4] == ' ') or
+        (state[1] == ' ' and state[4] == letra)):
         x2 += 1
 
     return(x1,x2)
@@ -255,22 +255,22 @@ def case_9(state,letra):
     x2 = 0
 
     "Linha 3"
-    if(state[6] == '' and state[7] == ''):
+    if(state[6] == ' ' and state[7] == ' '):
         x1 += 1
-    elif((state[6] == letra and state[7] == '') or
-         (state[6] == '' and state[7] == letra)):
+    elif((state[6] == letra and state[7] == ' ') or
+         (state[6] == ' ' and state[7] == letra)):
         x2 += 1
     "Coluna 3"
-    if(state[2] == '' and state[5] == ''):
+    if(state[2] == ' ' and state[5] == ' '):
         x1 += 1
-    elif((state[2] == letra and state[5] == '') or
-         (state[2] == '' and state[5] == letra)):
+    elif((state[2] == letra and state[5] == ' ') or
+         (state[2] == ' ' and state[5] == letra)):
         x2 += 1
     "Diagonal 0 -> 8"
-    if(state[0] == '' and state[4] == ''):
+    if(state[0] == ' ' and state[4] == ' '):
         x1 += 1
-    elif((state[0] == letra and state[4] == '') or
-         (state[0] == '' and state[4] == letra)):
+    elif((state[0] == letra and state[4] == ' ') or
+         (state[0] == ' ' and state[4] == letra)):
         x2 += 1
 
     return(x1,x2)
