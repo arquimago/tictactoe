@@ -73,14 +73,14 @@ def simetrico(tab1,tab2):
   return False
 
 def final(tab,letra):
-  return ((tab[6] == letra and tab[7] == letra and tab[8] == letra) or  
-  (tab[3] == letra and tab[4] == letra and tab[5] == letra) or 
-  (tab[0] == letra and tab[1] == letra and tab[2] == letra) or 
-  (tab[6] == letra and tab[3] == letra and tab[0] == letra) or 
-  (tab[7] == letra and tab[4] == letra and tab[1] == letra) or 
-  (tab[8] == letra and tab[5] == letra and tab[2] == letra) or 
-  (tab[6] == letra and tab[4] == letra and tab[2] == letra) or 
-  (tab[8] == letra and tab[4] == letra and tab[0] == letra)) 
+  return ((tab[6] == letra and tab[7] == letra and tab[8] == letra) or
+  (tab[3] == letra and tab[4] == letra and tab[5] == letra) or
+  (tab[0] == letra and tab[1] == letra and tab[2] == letra) or
+  (tab[6] == letra and tab[3] == letra and tab[0] == letra) or
+  (tab[7] == letra and tab[4] == letra and tab[1] == letra) or
+  (tab[8] == letra and tab[5] == letra and tab[2] == letra) or
+  (tab[6] == letra and tab[4] == letra and tab[2] == letra) or
+  (tab[8] == letra and tab[4] == letra and tab[0] == letra))
 
 def geraArvore(tabuleiro,no):
   for i in range(0,9):
@@ -122,13 +122,23 @@ def avaliarArvore(no):
   for filho in no.filhos:
     filho.imprimir()
     print "filho"
+    print "filho - Avaliacao " + str(filho.avaliacao)
     for neto in filho.filhos:
       neto.avaliacao=avaliacao(neto.tabuleiro)
       neto.imprimir()
       print "neto - Avaliacao " + str(neto.avaliacao)
-      if neto.avaliacao < filho.avaliacao:
-        filho.avaliacao = neto.avaliacao
-    print "filho - Avaliacao " + str(filho.avaliacao)
+
+
+def imprimirArvore(no):
+  no.imprimir()
+  print "raiz"
+  for filho in no.filhos:
+    filho.imprimir()
+    print "filho"
+    for neto in filho.filhos:
+      neto.avaliacao=avaliacao(neto.tabuleiro)
+      neto.imprimir()
+      print "neto"
 
 def main():
 
