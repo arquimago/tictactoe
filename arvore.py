@@ -69,36 +69,10 @@ def simetrico(tab1,tab2):
     tab2 = rodar(tab2)
   return False
 
-"""
-#a função abaixo gera 1 nivel de arvore
-def gerarArvore():
-  tabuleiro = [' ']*9
-  arvore=[]
-  arvore+=[[-1,copiar(tabuleiro)]]
-  tabuleiro[0]='X'
-  arvore+=[[0,copiar(tabuleiro)]]
-  tabuleiro[0]=' '
-  for i in range(1,9):
-    tabuleiro[i]='X'
-    naArvore = False
-    ehSimetrico = False
-    for no in arvore:
-      if no[1] == tabuleiro:
-        naArvore = True
-      elif not ehSimetrico:
-        ehSimetrico = simetrico(tabuleiro,no[1])
-    if not naArvore and not ehSimetrico:
-      arvore+=[[0,copiar(tabuleiro)]]
-    tabuleiro[i]=' '
-  return arvore
-"""
-
-def geraArvore(tabuleiro,no,nivel,letra):
-  if nivel == 2:
-    return
+def geraArvore(tabuleiro,no):
   for i in range(0,9):
     if tabuleiro[i] == ' ':
-      tabuleiro[i]=letra
+      tabuleiro[i]='X'
       naArvore=False
       ehSimetrico=False
       for filho in no.filhos:
@@ -111,28 +85,25 @@ def geraArvore(tabuleiro,no,nivel,letra):
         temp = No(tempTab)
         temp.imprimir()
         no.addFilho(temp)
-        for i in range(0,9):
-          if tempTab[i] == ' ':
-            tempTab[i] = 'O'
-            naArvore2 = False
-            ehSimetrico2=False
-            for filho in no.filhos[len(no.filhos)-1].filhos:
-              if filho == tempTab:
-                naArvore2 = True
-            elif not ehSimetrico2:
-              ehSimetrico2 = simetrico(tempTab,filho.tabuleiro)
-        if not naArvore2 and not ehSimetrico2:
-          tempTab2 = copiar(tempTab)
-          temp2=
-
-        '''
-        if letra == 'X':
-          letra = 'O'
-        else:
-          letra = 'X'
-        geraArvore(tabuleiro,no.filhos[len(no.filhos)-1],nivel+1,letra)
-        '''
       tabuleiro[i]=' '
+  for filho in no.filhos:
+    tempTab = copiar(filho.tabuleiro)
+    for i in range(0,9):
+      if tempTab[i] == ' ':
+        tempTab[i]='O'
+        naArvore=False
+        ehSimetrico=False
+        for neto in filho.filhos:
+          if neto == tempTab:
+            naArvore = True
+          elif not ehSimetrico:
+            ehSimetrico = simetrico(tempTab,neto.tabuleiro)
+        if not naArvore and not ehSimetrico:
+          tempTab2 = copiar(tempTab)
+          temp = No(tempTab2)
+          temp.imprimir()
+          filho.addFilho(temp)
+        tempTab[i]=' '
 
 def main():
   #print gerarArvore()
@@ -140,6 +111,6 @@ def main():
   tabuleiro = [' ']*9
   raiz = No(tabuleiro)
 
-  geraArvore(tabuleiro,raiz,0,'X')
+  geraArvore(tabuleiro,raiz)
 
 if __name__ == '__main__': main()
